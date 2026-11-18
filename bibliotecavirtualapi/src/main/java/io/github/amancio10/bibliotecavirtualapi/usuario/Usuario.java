@@ -62,4 +62,8 @@ public class Usuario extends EntidadeAuditavel {
     public void desativar() {
         this.ativo = false;
     }
+
+    public void registrarLogin(OffsetDateTime momento) {
+        this.ultimoLoginEm = momento;
+    }
 }

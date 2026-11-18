@@ -28,5 +28,11 @@ springdoc:
     operations-sorter: method
 
 biblioteca:
+  security:
+    jwt:
+      # Em produção, defina JWT_SECRET (mínimo 32 caracteres). O valor padrão serve só para desenvolvimento.
+      secret: ${JWT_SECRET:dev-secret-troque-em-producao-0123456789abcdef}
+      expiracao: ${JWT_EXPIRACAO:2h}
+      emissor: bibliotecavirtualapi
   jobs:
     expiracao-reservas-cron: "0 */15 * * * *"   # a cada 15 minutos

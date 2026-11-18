@@ -41,6 +41,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return problema(HttpStatus.CONFLICT, "Conflito", ex.getMessage(), req);
     }
 
+    @ExceptionHandler(CredenciaisInvalidasException.class)
+    public ProblemDetail handleCredenciaisInvalidas(CredenciaisInvalidasException ex, HttpServletRequest req) {
+        return problema(HttpStatus.UNAUTHORIZED, "Não autenticado", ex.getMessage(), req);
+    }
+
     @ExceptionHandler(AcessoNegadoException.class)
     public ProblemDetail handleAcessoNegado(AcessoNegadoException ex, HttpServletRequest req) {
         return problema(HttpStatus.FORBIDDEN, "Acesso negado", ex.getMessage(), req);
